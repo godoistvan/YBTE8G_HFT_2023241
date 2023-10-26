@@ -28,6 +28,6 @@ namespace YBTE8G_HFT_2023241.Models
         [NotMapped]
         public virtual Class Class { get; set; }
         [ForeignKey(nameof(Class))]
-        public int ClassID { get; set; }
+        public int? ClassID { get; set; }
     }
 }

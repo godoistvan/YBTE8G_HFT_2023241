@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,13 +20,18 @@ namespace YBTE8G_HFT_2023241.Models
         public string SemesterTakenIn { get;  set; }
         public bool AllowedForExam { get;  set; }
         [NotMapped]
-        public virtual Student student { get; set; }
+        public virtual Student Student { get; set; }
         [NotMapped]
         public virtual Course Course { get; set; }
         [ForeignKey(nameof(Course))]
         public int CourseID { get; set; }
-        [ForeignKey(nameof(student))]
-        public int StudentID { get; set; }
+        [ForeignKey(nameof(Student))]
+        public int? StudentID { get; set; }
+        [NotMapped]
+        public virtual ICollection<Student> Students { get; set; }
+        [NotMapped]
+        public virtual ICollection<Course> Courses { get; set; }
+
 
     }
 }
