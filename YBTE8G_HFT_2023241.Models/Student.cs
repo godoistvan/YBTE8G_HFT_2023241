@@ -9,11 +9,12 @@ using System.Threading.Tasks;
 namespace YBTE8G_HFT_2023241.Models
 {
     [Table("students")]
-    public class Student
+    public class Student : Entity
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public string StudentID { get; set; }
+        [Column("StudentID", TypeName = "int")]
+        public override int  Id { get; set; }
         [Required]
         public string Name { get; set; }
         [Required]

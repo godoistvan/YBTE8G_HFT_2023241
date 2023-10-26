@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace YBTE8G_HFT_2023241.Repository
+namespace YBTE8G_HFT_2023241.Repository.Interfaces
 {
     internal interface IClassRepository
     {

@@ -9,11 +9,12 @@ using System.Threading.Tasks;
 namespace YBTE8G_HFT_2023241.Models
 {
     [Table("courses")]
-    public class Course
+    public class Course : Entity
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public string CourseID { get; set; }
+        [Column("CourseID", TypeName = "int")]
+        public override int Id { get; set; }
         public int RecommendedSemester { get; set; }
         [MaxLength(30)]
         [Required]
