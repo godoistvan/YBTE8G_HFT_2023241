@@ -27,5 +27,6 @@ namespace YBTE8G_HFT_2023241.Models
         [NotMapped]
         public virtual Class Class { get; set; }
         public int Difficulty { get; set; }
+        public int Credit { get; set; }
     }
 }
