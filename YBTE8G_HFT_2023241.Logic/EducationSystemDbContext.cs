@@ -89,5 +89,6 @@ namespace YBTE8G_HFT_2023241.Logic
     new Course { Id = 11, RecommendedSemester = 4, CourseName = "Számítógépes szimulációk", ClassID = 1, Difficulty = 4, Credit = 4 }
 };
         }
+        
     }
 }

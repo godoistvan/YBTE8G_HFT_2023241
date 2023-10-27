@@ -16,17 +16,14 @@ namespace YBTE8G_HFT_2023241.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("ClassID", TypeName = "int")]
         public override int Id { get; set; }
-        public int FinalGrade { get; set; }
-        public string SemesterTakenIn { get;  set; }
-        public bool AllowedForExam { get;  set; }
+        public int Semester { get; set; }
+        public string ClassName { get;  set; }
+        public string Mascot { get;  set; }
+        public string Specialization { get; set; }
         [NotMapped]
         public virtual Student Student { get; set; }
         [NotMapped]
         public virtual Course Course { get; set; }
-        [ForeignKey(nameof(Course))]
-        public int CourseID { get; set; }
-        [ForeignKey(nameof(Student))]
-        public int? StudentID { get; set; }
         [NotMapped]
         public virtual ICollection<Student> Students { get; set; }
         [NotMapped]
