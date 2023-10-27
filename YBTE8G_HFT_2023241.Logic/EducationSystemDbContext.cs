@@ -88,8 +88,8 @@ namespace YBTE8G_HFT_2023241.Logic
     new Course { Id = 10, RecommendedSemester = 3, CourseName = "Adatszerkezetek és algoritmusok II", ClassID = 5, Difficulty = 5, Credit = 6 },
     new Course { Id = 11, RecommendedSemester = 4, CourseName = "Számítógépes szimulációk", ClassID = 1, Difficulty = 4, Credit = 4 }
 };
-        }
-        List<Class> classes = new List<Class>()
+
+            List<Class> classes = new List<Class>()
         {
             new Class{ Id = 1,Semester=1,ClassName="Óbudai Matematikusok",Mascot="Tigris",Specialization="NULL"},
     new Class { Id = 2, Semester = 1, ClassName = "Óbudai Fizikusok", Mascot = "Oroszlán", Specialization = "NULL" },
@@ -105,6 +105,11 @@ namespace YBTE8G_HFT_2023241.Logic
     new Class { Id = 12, Semester = 6, ClassName = "Óbudai Kutatók", Mascot = "Delfin", Specialization = "Szoftvertervezés és -fejlesztés" },
     new Class { Id = 13, Semester = 7, ClassName = "Óbudai Műszakiak", Mascot = "Kutya", Specialization = "Big Data és üzleti intelligencia" },
     new Class { Id = 14, Semester = 7, ClassName = "Óbudai Filozófusok", Mascot = "Nyúl", Specialization = "Szoftvertervezés és -fejlesztés" }
+
         };
+            modelBuilder.Entity<Student>().HasData(students);
+            modelBuilder.Entity<Course>().HasData(courses);
+            modelBuilder.Entity<Class>().HasData(classes);
+        }
     }
 }
