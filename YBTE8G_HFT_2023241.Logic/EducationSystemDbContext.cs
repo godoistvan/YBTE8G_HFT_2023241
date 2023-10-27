@@ -89,6 +89,22 @@ namespace YBTE8G_HFT_2023241.Logic
     new Course { Id = 11, RecommendedSemester = 4, CourseName = "Számítógépes szimulációk", ClassID = 1, Difficulty = 4, Credit = 4 }
 };
         }
-        
+        List<Class> classes = new List<Class>()
+        {
+            new Class{ Id = 1,Semester=1,ClassName="Óbudai Matematikusok",Mascot="Tigris",Specialization="NULL"},
+    new Class { Id = 2, Semester = 1, ClassName = "Óbudai Fizikusok", Mascot = "Oroszlán", Specialization = "NULL" },
+    new Class { Id = 3, Semester = 2, ClassName = "Óbudai Informatikusok", Mascot = "Leopárd", Specialization = "NULL" },
+    new Class { Id = 4, Semester = 2, ClassName = "Óbudai Elektromérnökök", Mascot = "Puma", Specialization = "NULL" },
+    new Class { Id = 5, Semester = 3, ClassName = "Óbudai Programozók", Mascot = "Zebra", Specialization = "NULL" },
+    new Class { Id = 6, Semester = 3, ClassName = "Óbudai Robotmérnökök", Mascot = "Tehén", Specialization = "NULL" },
+    new Class { Id = 7, Semester = 4, ClassName = "Óbudai Mérnökök", Mascot = "Pók", Specialization = "Big Data és üzleti intelligencia" },
+    new Class { Id = 8, Semester = 4, ClassName = "Óbudai Természettudósok", Mascot = "Sikló", Specialization = "Felhő szolgáltatási technológiák és IT biztonság" },
+    new Class { Id = 9, Semester = 5, ClassName = "Óbudai Tudósok", Mascot = "Denevér", Specialization = "IoT, beágyazott rendszerek és robotika" },
+    new Class { Id = 10, Semester = 5, ClassName = "Óbudai Költők", Mascot = "Galamb", Specialization = "Mesterséges Intelligencia" },
+    new Class { Id = 11, Semester = 6, ClassName = "Óbudai Gondolkodók", Mascot = "Ökör", Specialization = "Mesterséges intelligencia" },
+    new Class { Id = 12, Semester = 6, ClassName = "Óbudai Kutatók", Mascot = "Delfin", Specialization = "Szoftvertervezés és -fejlesztés" },
+    new Class { Id = 13, Semester = 7, ClassName = "Óbudai Műszakiak", Mascot = "Kutya", Specialization = "Big Data és üzleti intelligencia" },
+    new Class { Id = 14, Semester = 7, ClassName = "Óbudai Filozófusok", Mascot = "Nyúl", Specialization = "Szoftvertervezés és -fejlesztés" }
+        };
     }
 }
