@@ -13,6 +13,6 @@ namespace YBTE8G_HFT_2023241.Logic.Interfaces
         void Delete(int id);
         IEnumerable<Class> ReadAll();
         Class Read(int id);
-        void Update(Course classupdate);
+        void Update(Class classupdate);
     }
 }
