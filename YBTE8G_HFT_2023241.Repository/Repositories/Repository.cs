@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using YBTE8G_HFT_2023241.Logic;
 using YBTE8G_HFT_2023241.Models;
 using YBTE8G_HFT_2023241.Repository.Interfaces;
 
@@ -10,30 +11,41 @@ namespace YBTE8G_HFT_2023241.Repository.Repositories
 {
     public class Repository<T> : IRepository<T> where T : Entity
     {
-        public EducationSystemDbContext
+        public EducationSystemDbContext ctx;
+        public Repository(EducationSystemDbContext ctx)
+        {
+                this.ctx = ctx ?? throw new ArgumentNullException(nameof(ctx));
+        }
         public void Create(T item)
         {
-            throw new NotImplementedException();
+            ctx.Set<T>().Add(item);
+            ctx.SaveChanges();
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            ctx.Set<T>().Remove(Read(id));
+            ctx.SaveChanges();
         }
 
         public T Read(int id)
         {
-            throw new NotImplementedException();
+            return ctx.Set<T>().FirstOrDefault(item => item.Id.Equals(id));
         }
 
         public IQueryable<T> ReadAll()
         {
-            throw new NotImplementedException();
+            return ctx.Set<T>();
         }
 
-        public void Update(T item)
+        public virtual void Update(T item)
         {
-            throw new NotImplementedException();
+            var old = Read(item.Id);
+            foreach (var prop in old.GetType().GetProperties())
+            {
+                prop.SetValue(old, prop.GetValue(item));
+            }
+            ctx.SaveChanges();
         }
     }
 }
