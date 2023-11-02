@@ -8,8 +8,9 @@ using YBTE8G_HFT_2023241.Repository.Interfaces;
 
 namespace YBTE8G_HFT_2023241.Repository.Repositories
 {
-    internal class Repository<T> : IRepository<T> where T : Entity
+    public class Repository<T> : IRepository<T> where T : Entity
     {
+        public EducationSystemDbContext
         public void Create(T item)
         {
             throw new NotImplementedException();
