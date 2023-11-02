@@ -20,7 +20,7 @@ namespace YBTE8G_HFT_2023241.Models
         [Required]
         public string CourseName { get; set; }
         [NotMapped]
-        public int TeacherName { get; set; }
+        public string TeacherName { get; set; }
         [ForeignKey(nameof(Class))]
         public int ClassID { get; set; }
         [NotMapped]
