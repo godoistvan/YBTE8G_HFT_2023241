@@ -8,7 +8,7 @@ using YBTE8G_HFT_2023241.Models;
 
 namespace YBTE8G_HFT_2023241.Logic.Services
 {
-    internal class ClassLogic : IClassLogic
+    public class ClassLogic : IClassLogic
     {
         IClassLogic classRepo;
         public ClassLogic(IClassLogic classRepo)

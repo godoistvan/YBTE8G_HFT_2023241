@@ -7,7 +7,7 @@ using YBTE8G_HFT_2023241.Models;
 
 namespace YBTE8G_HFT_2023241.Logic.Interfaces
 {
-    internal interface IClassLogic
+    public interface IClassLogic
     {
         void Create(Class classcreate);
         void Delete(int id);
