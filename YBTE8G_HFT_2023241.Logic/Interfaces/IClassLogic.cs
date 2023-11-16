@@ -9,10 +9,10 @@ namespace YBTE8G_HFT_2023241.Logic.Interfaces
 {
     public interface IClassLogic
     {
-        void Create(Class classcreate);
+        void Create(SportTeam classcreate);
         void Delete(int id);
-        IEnumerable<Class> ReadAll();
-        Class Read(int id);
-        void Update(Class classupdate);
+        IEnumerable<SportTeam> ReadAll();
+        SportTeam Read(int id);
+        void Update(SportTeam classupdate);
     }
 }

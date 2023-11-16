@@ -21,11 +21,13 @@ namespace YBTE8G_HFT_2023241.Models
         public string Email { get; set; }
         [Required]
         public string PhoneNumber { get; set; }
+        public int SportTeamId { get;  set; }
+        public int CourseId { get; set; }
         [Required]
         public int SemestersIn { get; set; }
         [NotMapped]
-        public virtual Course Course { get; set;}
+        public virtual List<Course> Courses { get; set;}
         [NotMapped]
-        public virtual Class Class { get; set; }
+        public virtual SportTeam Team { get; set; }
     }
 }

@@ -22,9 +22,7 @@ namespace YBTE8G_HFT_2023241.Models
         [NotMapped]
         public string TeacherName { get; set; }
         [NotMapped]
-        public virtual Student Student { get; set; }
-        [NotMapped]
-        public virtual Class Class { get; set; }
+        public virtual ICollection<Student> Students { get; set; }
         public int Difficulty { get; set; }
         public int Credit { get; set; }
     }
