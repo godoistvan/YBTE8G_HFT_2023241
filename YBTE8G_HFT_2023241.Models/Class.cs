@@ -25,6 +25,6 @@ namespace YBTE8G_HFT_2023241.Models
         [NotMapped]
         public virtual ICollection<Course> Courses { get; set; }
 
-
+            
     }
 }
