@@ -15,7 +15,7 @@ namespace YBTE8G_HFT_2023241.Logic.Services
         {
                 this.courseRepo=courseRepo;
         }
-        public void Create(Course course)
+        public void Create(Game course)
         {
             courseRepo.Create(course);
         }
@@ -25,17 +25,17 @@ namespace YBTE8G_HFT_2023241.Logic.Services
            courseRepo.Delete(id);
         }
 
-        public Course Read(int id)
+        public Game Read(int id)
         {
             return courseRepo.Read(id) ?? throw new ArgumentNullException("Nem találtunk ilyen id-vel kurzust");
         }
 
-        public IEnumerable<Course> ReadAll()
+        public IEnumerable<Game> ReadAll()
         {
             return courseRepo.ReadAll();
         }
 
-        public void Update(Course course)
+        public void Update(Game course)
         {
             courseRepo.Update(course);
         }

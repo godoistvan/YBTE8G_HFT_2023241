@@ -9,16 +9,16 @@ using YBTE8G_HFT_2023241.Repository.Interfaces;
 
 namespace YBTE8G_HFT_2023241.Repository.Repositories
 {
-    public class ClassRepository : Repository<SportTeam>, IClassRepository
+    public class TeamRepository : Repository<Team>, ITeamRepository
     {
-        public ClassRepository(EducationSystemDbContext ctx) : base(ctx)
+        public TeamRepository(EsportSystemDbContext ctx) : base(ctx)
         {
 
         }
-        public void UpdateSemester(int id,string newSportsName)
+        public void UpdateTeamName(int id,string TeamName)
         {
-            SportTeam old = Read(id);
-            old.SportName = newSportsName;
+            Team old = Read(id);
+            old.TeamName = TeamName;
             ctx.SaveChanges();
         }
     }

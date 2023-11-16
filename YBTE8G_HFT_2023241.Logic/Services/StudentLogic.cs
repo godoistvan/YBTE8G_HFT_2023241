@@ -15,7 +15,7 @@ namespace YBTE8G_HFT_2023241.Logic.Services
         {
             this.studentRepo = studentRepo;
         }
-        public void Create(Student student)
+        public void Create(Player student)
         {
             studentRepo.Create(student);
         }
@@ -25,17 +25,17 @@ namespace YBTE8G_HFT_2023241.Logic.Services
             studentRepo.Delete(id);
         }
 
-        public Student Read(int id)
+        public Player Read(int id)
         {
             return studentRepo.Read(id) ?? throw new ArgumentNullException("Nem találtunk ilyen id-vel hallgatót");
         }
 
-        public IEnumerable<Student> ReadAll()
+        public IEnumerable<Player> ReadAll()
         {
             return studentRepo.ReadAll();
         }
 
-        public void Update(Student student)
+        public void Update(Player student)
         {
             studentRepo.Update(student);
         }

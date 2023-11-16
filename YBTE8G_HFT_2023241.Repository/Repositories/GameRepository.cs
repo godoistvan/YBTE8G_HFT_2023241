@@ -9,15 +9,15 @@ using YBTE8G_HFT_2023241.Repository.Interfaces;
 
 namespace YBTE8G_HFT_2023241.Repository.Repositories
 {
-    public class CourseRepository : Repository<Course>, ICourseRepository
+    public class GameRepository : Repository<Game>, IGameRepository
     {
-        public CourseRepository(EducationSystemDbContext ctx) : base(ctx)
+        public GameRepository(EsportSystemDbContext ctx) : base(ctx)
         {
         }
-        public void UpdateTeacherName(int id,string newTeacherName)
+        public void UpdateLeagueName(int id,string LeagueName)
         {
-            Course old = Read(id);
-            old.TeacherName = newTeacherName;
+            Game old = Read(id);
+            old.LeagueName = LeagueName;
             ctx.SaveChanges();
         }
     }

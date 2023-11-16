@@ -9,10 +9,10 @@ namespace YBTE8G_HFT_2023241.Logic.Interfaces
 {
     public interface ICourseLogic
     {
-        void Create(Course course);
+        void Create(Game course);
         void Delete(int id);
-        IEnumerable<Course> ReadAll();
-        Course Read(int id);
-        void Update(Course course);
+        IEnumerable<Game> ReadAll();
+        Game Read(int id);
+        void Update(Game course);
     }
 }

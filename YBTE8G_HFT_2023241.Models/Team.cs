@@ -9,19 +9,18 @@ using System.Threading.Tasks;
 
 namespace YBTE8G_HFT_2023241.Models
 {
-    [Table("classes")]
-    public class SportTeam : Entity
+    [Table("Teams")]
+    public class Team : Entity
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Column("SportTeamID", TypeName = "int")]
+        [Column("TeamID", TypeName = "int")]
         public override int Id { get; set; }
-        public string SportName { get;  set; }
-        public string Mascot { get;  set; }
-        public bool AreChampions { get; set; }
-        public int StudentId { get; set; }
+        public string TeamName { get;  set; }
+        public string CountryOfOrigin { get;  set; }
+        public bool MultipleGamesPlayed { get; set; }
         [NotMapped]
-        public virtual ICollection<Student> Students { get; set; }
+        public virtual ICollection<Player> Players { get; set; }
 
             
     }

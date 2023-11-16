@@ -11,8 +11,8 @@ namespace YBTE8G_HFT_2023241.Repository.Repositories
 {
     public class Repository<T> : IRepository<T> where T : Entity
     {
-        public EducationSystemDbContext ctx;
-        public Repository(EducationSystemDbContext ctx)
+        public EsportSystemDbContext ctx;
+        public Repository(EsportSystemDbContext ctx)
         {
                 this.ctx = ctx ?? throw new ArgumentNullException(nameof(ctx));
         }

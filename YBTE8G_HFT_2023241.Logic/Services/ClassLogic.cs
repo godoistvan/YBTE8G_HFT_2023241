@@ -15,7 +15,7 @@ namespace YBTE8G_HFT_2023241.Logic.Services
         {
              this.classRepo = classRepo;
         }
-        public void Create(SportTeam classcreate)
+        public void Create(Team classcreate)
         {
             classRepo.Create(classcreate);
         }
@@ -25,17 +25,17 @@ namespace YBTE8G_HFT_2023241.Logic.Services
             classRepo.Delete(id);
         }
 
-        public SportTeam Read(int id)
+        public Team Read(int id)
         {
             return classRepo.Read(id) ?? throw new ArgumentNullException("Nem találtunk ilyen id-vel osztályt");
         }
 
-        public IEnumerable<SportTeam> ReadAll()
+        public IEnumerable<Team> ReadAll()
         {
             return classRepo.ReadAll();
         }
 
-        public void Update(SportTeam classupdate)
+        public void Update(Team classupdate)
         {
             classRepo.Update(classupdate);
         }

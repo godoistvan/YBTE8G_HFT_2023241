@@ -9,8 +9,8 @@ namespace YBTE8G_HFT_2023241
         static void Main(string[] args)
         {
             EducationSystemDbContext dbseed = new EducationSystemDbContext();
-            dbseed.Students.ToArray();
-            dbseed.Courses.ToArray();
+            dbseed.Players.ToArray();
+            dbseed.Games.ToArray();
             dbseed.Teams.ToArray();
             ;
             Console.WriteLine("Hello World!");

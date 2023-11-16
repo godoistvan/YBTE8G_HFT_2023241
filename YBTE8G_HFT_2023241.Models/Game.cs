@@ -8,22 +8,20 @@ using System.Threading.Tasks;
 
 namespace YBTE8G_HFT_2023241.Models
 {
-    [Table("courses")]
-    public class Course : Entity
+    [Table("Games")]
+    public class Game : Entity
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Column("CourseID", TypeName = "int")]
+        [Column("GameID", TypeName = "int")]
         public override int Id { get; set; }
-        public int RecommendedSemester { get; set; }
+        public string GameName { get; set; }
+        public string LeagueName { get; set; }
         [MaxLength(30)]
         [Required]
-        public string CourseName { get; set; }
+        public string Developer { get; set; }
+        public int ReleaseDate { get; set; }
         [NotMapped]
-        public string TeacherName { get; set; }
-        [NotMapped]
-        public virtual ICollection<Student> Students { get; set; }
-        public int Difficulty { get; set; }
-        public int Credit { get; set; }
+        public virtual ICollection<Player> Players { get; set; }
     }
 }

@@ -9,10 +9,10 @@ namespace YBTE8G_HFT_2023241.Logic.Interfaces
 {
     public interface IStudentLogic
     {
-        void Create(Student student);
+        void Create(Player student);
         void Delete(int id);
-        IEnumerable<Student> ReadAll();
-        Student Read(int id);
-        void Update(Student student);
+        IEnumerable<Player> ReadAll();
+        Player Read(int id);
+        void Update(Player student);
     }
 }
