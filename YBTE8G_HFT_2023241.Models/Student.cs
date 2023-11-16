@@ -27,7 +27,5 @@ namespace YBTE8G_HFT_2023241.Models
         public virtual Course Course { get; set;}
         [NotMapped]
         public virtual Class Class { get; set; }
-        [ForeignKey(nameof(Class))]
-        public int? ClassID { get; set; }
     }
 }
