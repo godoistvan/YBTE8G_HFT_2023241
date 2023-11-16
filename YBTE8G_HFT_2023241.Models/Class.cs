@@ -21,10 +21,6 @@ namespace YBTE8G_HFT_2023241.Models
         public string Mascot { get;  set; }
         public string Specialization { get; set; }
         [NotMapped]
-        public virtual Student Student { get; set; }
-        [NotMapped]
-        public virtual Course Course { get; set; }
-        [NotMapped]
         public virtual ICollection<Student> Students { get; set; }
         [NotMapped]
         public virtual ICollection<Course> Courses { get; set; }
