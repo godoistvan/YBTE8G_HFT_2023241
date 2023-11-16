@@ -7,12 +7,12 @@ using YBTE8G_HFT_2023241.Models;
 
 namespace YBTE8G_HFT_2023241.Logic.Interfaces
 {
-    public interface IClassLogic
+    public interface IPlayerLogic
     {
-        void Create(Team classcreate);
+        void Create(Player player);
         void Delete(int id);
-        IEnumerable<Team> ReadAll();
-        Team Read(int id);
-        void Update(Team classupdate);
+        IEnumerable<Player> ReadAll();
+        Player Read(int id);
+        void Update(Player player);
     }
 }

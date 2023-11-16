@@ -8,10 +8,10 @@ using YBTE8G_HFT_2023241.Models;
 
 namespace YBTE8G_HFT_2023241.Logic.Services
 {
-    public class CourseLogic : ICourseLogic
+    public class GameLogic : IGameLogic
     {
-        ICourseLogic courseRepo;
-        public CourseLogic(ICourseLogic courseRepo)
+        IGameLogic courseRepo;
+        public GameLogic(IGameLogic courseRepo)
         {
                 this.courseRepo=courseRepo;
         }

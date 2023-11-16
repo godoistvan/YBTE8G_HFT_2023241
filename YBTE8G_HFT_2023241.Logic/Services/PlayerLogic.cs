@@ -8,10 +8,10 @@ using YBTE8G_HFT_2023241.Models;
 
 namespace YBTE8G_HFT_2023241.Logic.Services
 {
-    public class StudentLogic : IStudentLogic
+    public class StudentLogic : IPlayerLogic
     {
-        IStudentLogic studentRepo;
-        public StudentLogic(IStudentLogic studentRepo)
+        IPlayerLogic studentRepo;
+        public StudentLogic(IPlayerLogic studentRepo)
         {
             this.studentRepo = studentRepo;
         }
