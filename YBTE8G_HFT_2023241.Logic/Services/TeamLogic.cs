@@ -8,10 +8,10 @@ using YBTE8G_HFT_2023241.Models;
 
 namespace YBTE8G_HFT_2023241.Logic.Services
 {
-    public class ClassLogic : ITeamLogic
+    public class TeamLogic : ITeamLogic
     {
         ITeamLogic classRepo;
-        public ClassLogic(ITeamLogic classRepo)
+        public TeamLogic(ITeamLogic classRepo)
         {
              this.classRepo = classRepo;
         }

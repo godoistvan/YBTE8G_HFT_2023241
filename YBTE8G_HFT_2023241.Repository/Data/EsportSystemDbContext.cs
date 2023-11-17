@@ -10,16 +10,16 @@ using YBTE8G_HFT_2023241.Models;
 
 namespace YBTE8G_HFT_2023241.Logic
 {
-    public partial class EducationSystemDbContext : DbContext
+    public partial class EsportSystemDbContext : DbContext
     {
         public virtual DbSet<Player> Players { get; set; }
         public virtual DbSet<Game> Games { get; set; }
         public virtual DbSet<Team> Teams { get; set; }
-        public EducationSystemDbContext()
+        public EsportSystemDbContext()
         {
             this.Database.EnsureCreated();
         }
-        public EducationSystemDbContext(DbContextOptions<EducationSystemDbContext> options) : base(options)
+        public EsportSystemDbContext(DbContextOptions<EsportSystemDbContext> options) : base(options)
         {
             this.Database.EnsureCreated();
         }
