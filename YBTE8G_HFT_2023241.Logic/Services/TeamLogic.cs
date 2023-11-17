@@ -10,34 +10,51 @@ namespace YBTE8G_HFT_2023241.Logic.Services
 {
     public class TeamLogic : ITeamLogic
     {
-        ITeamLogic classRepo;
+        ITeamLogic teamRepo;
         public TeamLogic(ITeamLogic classRepo)
         {
-             this.classRepo = classRepo;
+             this.teamRepo = classRepo;
         }
         public void Create(Team classcreate)
         {
-            classRepo.Create(classcreate);
+            teamRepo.Create(classcreate);
         }
 
         public void Delete(int id)
         {
-            classRepo.Delete(id);
+            teamRepo.Delete(id);
         }
+        public string TeamWithMostLoLPlayers()
+        {
+            var teamWithMostLoLPlayers = teamRepo.ReadAll()
+                .OrderByDescending(team => team.Players.Count(player => player.game.GameName == "League of Legends"))
+                .FirstOrDefault();
 
+            return teamWithMostLoLPlayers.TeamName;
+        }
+        public string TeamWithHighestAverageSalaryInDota2()
+        {
+            var teamWithHighestAverageSalary = teamRepo.ReadAll()
+                .OrderByDescending(team => team.Players
+                    .Where(player => player.game.GameName == "Dota 2")
+                    .Average(player => player.Salary))
+                .FirstOrDefault();
+
+            return teamWithHighestAverageSalary.TeamName;
+        }
         public Team Read(int id)
         {
-            return classRepo.Read(id) ?? throw new ArgumentNullException("Nem találtunk ilyen id-vel osztályt");
+            return teamRepo.Read(id) ?? throw new ArgumentNullException("Nem találtunk ilyen id-vel csapatot");
         }
 
         public IEnumerable<Team> ReadAll()
         {
-            return classRepo.ReadAll();
+            return teamRepo.ReadAll();
         }
 
         public void Update(Team classupdate)
         {
-            classRepo.Update(classupdate);
+            teamRepo.Update(classupdate);
         }
     }
 }
