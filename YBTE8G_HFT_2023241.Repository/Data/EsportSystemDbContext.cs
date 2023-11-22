@@ -28,7 +28,7 @@ namespace YBTE8G_HFT_2023241.Logic
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder
-              .UseInMemoryDatabase("carshopdb")
+              .UseInMemoryDatabase("esportdb")
               .UseLazyLoadingProxies();
 
 

@@ -56,16 +56,6 @@ namespace YBTE8G_HFT_2023241.Endpoint
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "YBTE8G_HFT_2023241.Endpoint v1"));
             }
-
-            app.UseExceptionHandler(c => c.Run(async context =>
-            {
-                var exception = context.Features
-                    .Get<IExceptionHandlerPathFeature>()
-                    .Error;
-                var response = new { Msg = exception.Message };
-                await context.Response.WriteAsJsonAsync(response);
-            }));
-
             app.UseRouting();
 
             app.UseAuthorization();
