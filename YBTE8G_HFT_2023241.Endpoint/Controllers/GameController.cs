@@ -7,14 +7,14 @@ using YBTE8G_HFT_2023241.Models;
 
 namespace YBTE8G_HFT_2023241.Endpoint.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
-    public class EsportController : ControllerBase
+    public class GameController : ControllerBase
     {
         IGameLogic logic;
-        // GET: api/<EsportController>
-        
-        public EsportController(IGameLogic logic)
+        // GET: api/<GameController>
+
+        public GameController(IGameLogic logic)
         {
             this.logic = logic;
         }
@@ -24,28 +24,28 @@ namespace YBTE8G_HFT_2023241.Endpoint.Controllers
             return this.logic.ReadAll();
         }
 
-        // GET api/<EsportController>/5
+        // GET api/<GameController>/5
         [HttpGet("{id}")]
         public Game Read(int id)
         {
             return this.logic.Read(id);
         }
 
-        // POST api/<EsportController>
+        // POST api/<GameController>
         [HttpPost]
         public void Create([FromBody] Game value)
         {
             this.logic.Create(value);
         }
 
-        // PUT api/<EsportController>/5
+        // PUT api/<GameController>/5
         [HttpPut("{id}")]
         public void Update([FromBody] Game value)
         {
             this.logic.Update(value);
         }
 
-        // DELETE api/<EsportController>/5
+        // DELETE api/<GameController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
