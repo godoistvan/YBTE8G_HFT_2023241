@@ -126,9 +126,12 @@ namespace YBTE8G_HFT_2023241
             }
             if (entity == "ChineseExp")
             {
-                string view = rest.GetSingle<string>("GameStat/ChinesePlayersWithExp");
-                Console.WriteLine(view);
+                List<string> chineseExpList = rest.Get<string>("GameStat/ChinesePlayersWithExp").ToList();
 
+                foreach (var exp in chineseExpList)
+                {
+                    Console.WriteLine(exp);
+                }
             }
             if (entity == "ChineseTeams")
             {

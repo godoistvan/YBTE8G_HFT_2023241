@@ -57,7 +57,8 @@ namespace YBTE8G_HFT_2023241.Logic.Services
             var result = gameRepo.ReadAll()
                    .SelectMany(game => game.Players)
                    .Where(player => player.Team.CountryOfOrigin == "China" && player.YearsActive > 3)
-                   .Select(player => player.IngameName);
+                   .Select(player => player.IngameName)
+                   .AsEnumerable();
             return result;
         }
         public string GameWithHighestAverageSalary()
