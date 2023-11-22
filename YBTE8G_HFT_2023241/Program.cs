@@ -23,9 +23,14 @@ namespace YBTE8G_HFT_2023241
             {
                 Console.Write("Enter Player Name: ");
                 string name = Console.ReadLine();
-                rest.Post(new Game() { GameName = name }, "player");
+                rest.Post(new Player() { IngameName = name }, "player");
             }
-
+            if (entity == "Team")
+            {
+                Console.Write("Enter Team Name: ");
+                string name = Console.ReadLine();
+                rest.Post(new Team() { TeamName = name }, "team");
+            }
         }
         static void List(string entity)
         {
@@ -43,6 +48,14 @@ namespace YBTE8G_HFT_2023241
                 foreach (var item in players)
                 {
                     Console.WriteLine(item.Id+":"+item.IngameName);
+                }
+            }
+            if (entity == "Team")
+            {
+                List<Team> teams = rest.Get<Team>("team");
+                foreach (var item in teams)
+                {
+                    Console.WriteLine(item.Id + ":" + item.TeamName);
                 }
             }
             Console.ReadLine();
@@ -64,11 +77,21 @@ namespace YBTE8G_HFT_2023241
             {
                 Console.Write("Enter Player's id to update: ");
                 int id = int.Parse(Console.ReadLine());
-                Player one = rest.Get<Player>(id, "game");
+                Player one = rest.Get<Player>(id, "player");
                 Console.Write($"New name [old: {one.IngameName}]: ");
                 string name = Console.ReadLine();
                 one.IngameName = name;
                 rest.Put(one, "game");
+            }
+            if (entity == "Team")
+            {
+                Console.Write("Enter Team's id to update: ");
+                int id = int.Parse(Console.ReadLine());
+                Team one = rest.Get<Team>(id, "team");
+                Console.Write($"New name [old: {one.TeamName}]: ");
+                string name = Console.ReadLine();
+                one.TeamName = name;
+                rest.Put(one, "team");
             }
         }
         static void Delete(string entity)
