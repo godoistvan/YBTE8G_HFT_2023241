@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace YBTE8G_HFT_2023241.Repository.Interfaces
 {
-    internal interface IPlayerRepository
+    public interface IPlayerRepository
     {
     }
 }
