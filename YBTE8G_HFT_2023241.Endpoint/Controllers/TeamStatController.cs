@@ -1,43 +1,33 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using YBTE8G_HFT_2023241.Logic.Interfaces;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace YBTE8G_HFT_2023241.Endpoint.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]/[action]")]
     [ApiController]
     public class TeamStatController : ControllerBase
     {
-        // GET: api/<TeamStatController>
+        ITeamLogic logic;
+
+        public TeamStatController(ITeamLogic logic)
+        {
+            this.logic = logic;
+        }
         [HttpGet]
-        public IEnumerable<string> Get()
+        public string TeamWithMostLoLPlayers()
         {
-            return new string[] { "value1", "value2" };
+            return this.logic.TeamWithMostLoLPlayers();
         }
 
-        // GET api/<TeamStatController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet]
+        public string TeamWithHighestAverageSalaryInDota2()
         {
-            return "value";
+            return this.logic.TeamWithHighestAverageSalaryInDota2();
         }
 
-        // POST api/<TeamStatController>
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
 
-        // PUT api/<TeamStatController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<TeamStatController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
     }
 }

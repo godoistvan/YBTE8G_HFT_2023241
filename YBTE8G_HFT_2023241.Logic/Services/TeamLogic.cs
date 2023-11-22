@@ -33,11 +33,11 @@ namespace YBTE8G_HFT_2023241.Logic.Services
 
             return teamWithMostLoLPlayers.TeamName;
         }
-        public string TeamWithHighestAverageSalaryInDota2()
+        public string TeamWithHighestAverageSalaryInAGame(string game)
         {
             var teamWithHighestAverageSalary = teamRepo.ReadAll()
                 .OrderByDescending(team => team.Players
-                    .Where(player => player.game.GameName == "Dota 2")
+                    .Where(player => player.game.GameName == game)
                     .Average(player => player.Salary))
                 .FirstOrDefault();
 
