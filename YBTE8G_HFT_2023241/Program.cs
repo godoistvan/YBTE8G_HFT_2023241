@@ -124,6 +124,30 @@ namespace YBTE8G_HFT_2023241
                 Console.WriteLine(view);
                 
             }
+            if (entity == "ChineseExp")
+            {
+                string view = rest.GetSingle<string>("GameStat/ChinesePlayersWithExp");
+                Console.WriteLine(view);
+
+            }
+            if (entity == "ChineseTeams")
+            {
+                string view = rest.GetSingle<string>("GameStat/GameWithMostChineseTeams");
+                Console.WriteLine(view);
+
+            }
+            if (entity == "LeagueChamps")
+            {
+                string view = rest.GetSingle<string>("GameStat/GameWithMostLeagueChampions");
+                Console.WriteLine(view);
+
+            }
+            if (entity == "LolPlayers")
+            {
+                string view = rest.GetSingle<string>("/TeamStat/TeamWithMostLoLPlayers");
+                Console.WriteLine(view);
+
+            }
             Console.ReadLine();
         }
         static void Main(string[] args)
@@ -142,7 +166,7 @@ namespace YBTE8G_HFT_2023241
                 .Add("Delete", () => Delete("Player"))
                 .Add("Update", () => Update("Player"))
                 .Add("Exit", ConsoleMenu.Close);
-            var noncrudSubMenu = new ConsoleMenu(args, level: 0)
+            var noncrudSubMenu = new ConsoleMenu(args, level: 1)
                 .Add("MostPlayersInAGame", () => NonCrudOut("Most"))
                 .Add("ChinesePlayersWithExp", () => NonCrudOut("ChineseExp"))
                 .Add("GameWithMostChineseTeams", () => NonCrudOut("ChineseTeams"))
@@ -159,6 +183,7 @@ namespace YBTE8G_HFT_2023241
                 .Add("Games", () => gameSubMenu.Show())
                 .Add("Players", () => playerSubMenu.Show())
                 .Add("Teams", () => teamSubMenu.Show())
+                .Add("NonCruds", () => noncrudSubMenu.Show())
                 .Add("Exit", ConsoleMenu.Close);
             menu.Show();
         }
