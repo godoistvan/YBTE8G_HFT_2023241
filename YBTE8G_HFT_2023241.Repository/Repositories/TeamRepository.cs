@@ -16,15 +16,24 @@ namespace YBTE8G_HFT_2023241.Repository.Repositories
         {
 
         }
+
         public override Team Read(int id)
         {
-            return ctx.Actors.FirstOrDefault(t => t.ActorId == id);
+            return ctx.Teams.FirstOrDefault(t => t.Id == id);
         }
-        public void UpdateTeamName(int id,string TeamName)
+
+        public override void Update(Team item)
         {
-            Team old = Read(id);
-            old.TeamName = TeamName;
+            var old = Read(item.Id);
+            foreach (var prop in old.GetType().GetProperties())
+            {
+                if (prop.GetAccessors().FirstOrDefault(t => t.IsVirtual) == null)
+                {
+                    prop.SetValue(old, prop.GetValue(item));
+                }
+            }
             ctx.SaveChanges();
         }
     }
 }
+
