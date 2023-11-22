@@ -31,7 +31,7 @@ namespace YBTE8G_HFT_2023241.Endpoint.Controllers
         {
             this.logic.Create(value);
         }
-        [HttpPut("{id}")]
+        [HttpPut]
         public void Update([FromBody] Player value)
         {
             this.logic.Update(value);
