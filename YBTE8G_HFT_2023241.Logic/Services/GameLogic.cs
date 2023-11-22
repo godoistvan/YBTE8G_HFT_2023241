@@ -14,8 +14,6 @@ namespace YBTE8G_HFT_2023241.Logic.Services
     public class GameLogic : IGameLogic
     {
         IRepository<Game> gameRepo;
-        IPlayerLogic playerLogic;
-        ITeamLogic teamLogic;
         public GameLogic(IRepository<Game> repo)
         {
             gameRepo = repo;

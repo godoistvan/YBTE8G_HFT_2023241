@@ -5,39 +5,40 @@ using System.Text;
 using System.Threading.Tasks;
 using YBTE8G_HFT_2023241.Logic.Interfaces;
 using YBTE8G_HFT_2023241.Models;
+using YBTE8G_HFT_2023241.Repository.Interfaces;
 
 namespace YBTE8G_HFT_2023241.Logic.Services
 {
     public class PlayerLogic : IPlayerLogic
     {
-        IPlayerLogic studentRepo;
-        public PlayerLogic(IPlayerLogic studentRepo)
+        IRepository<Player> PlayerRepo;
+        public PlayerLogic(IRepository<Player> repo)
         {
-            this.studentRepo = studentRepo;
+            PlayerRepo = repo;
         }
         public void Create(Player student)
         {
-            studentRepo.Create(student);
+            PlayerRepo.Create(student);
         }
 
         public void Delete(int id)
         {
-            studentRepo.Delete(id);
+            PlayerRepo.Delete(id);
         }
 
         public Player Read(int id)
         {
-            return studentRepo.Read(id) ?? throw new ArgumentNullException("Nem találtunk ilyen id-vel hallgatót");
+            return PlayerRepo.Read(id) ?? throw new ArgumentNullException("Nem találtunk ilyen id-vel hallgatót");
         }
 
         public IEnumerable<Player> ReadAll()
         {
-            return studentRepo.ReadAll();
+            return PlayerRepo.ReadAll();
         }
 
         public void Update(Player student)
         {
-            studentRepo.Update(student);
+            PlayerRepo.Update(student);
         }
     }
 }
