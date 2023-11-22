@@ -9,7 +9,7 @@ using YBTE8G_HFT_2023241.Repository.Interfaces;
 
 namespace YBTE8G_HFT_2023241.Repository.Repositories
 {
-    public class PlayerRepostiory : Repository<Player>, IPlayerRepository
+    public class PlayerRepostiory : Repository<Player>, IRepository<Player>
     {
         public PlayerRepostiory(EsportSystemDbContext ctx) : base(ctx)
         {

@@ -79,11 +79,12 @@ namespace YBTE8G_HFT_2023241
                 .Add("Update", () => Update("Team"))
                 .Add("Exit", ConsoleMenu.Close);
             var menu = new ConsoleMenu(args, level: 0)
-                .Add("Movies", () => gameSubMenu.Show())
-                .Add("Actors", () => playerSubMenu.Show())
-                .Add("Roles", () => teamSubMenu.Show())
+                .Add("Games", () => gameSubMenu.Show())
+                .Add("Players", () => playerSubMenu.Show())
+                .Add("Teams", () => teamSubMenu.Show())
                 .Add("Exit", ConsoleMenu.Close);
-            Console.WriteLine("Hello World!");
+            menu.Show();
+            Console.Clear();
         }
     }
 }
