@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Runtime.ConstrainedExecution;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace YBTE8G_HFT_2023241.Models
@@ -20,6 +21,7 @@ namespace YBTE8G_HFT_2023241.Models
         public string CountryOfOrigin { get;  set; }
         public bool MultipleGamesPlayed { get; set; }
         [NotMapped]
+        [JsonIgnore]
         public virtual ICollection<Player> Players { get; set; }
 
             
