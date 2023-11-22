@@ -114,6 +114,17 @@ namespace YBTE8G_HFT_2023241
                 int id = int.Parse(Console.ReadLine());
                 rest.Delete(id, "team");
             }
+           
+        }
+        static void NonCrudOut(string entity)
+        {
+            if (entity=="Most")
+            {
+                string view = rest.GetSingle<string>("gamestat/mostplayersinagame");
+                Console.WriteLine(view);
+                
+            }
+            Console.ReadLine();
         }
         static void Main(string[] args)
         {
@@ -131,7 +142,13 @@ namespace YBTE8G_HFT_2023241
                 .Add("Delete", () => Delete("Player"))
                 .Add("Update", () => Update("Player"))
                 .Add("Exit", ConsoleMenu.Close);
-
+            var noncrudSubMenu = new ConsoleMenu(args, level: 0)
+                .Add("MostPlayersInAGame", () => NonCrudOut("Most"))
+                .Add("ChinesePlayersWithExp", () => NonCrudOut("ChineseExp"))
+                .Add("GameWithMostChineseTeams", () => NonCrudOut("ChineseTeams"))
+                .Add("GameWithMostLeagueChampions", () => NonCrudOut("LeagueChamps"))
+                .Add("TeamWithMostLolPlayers", () => NonCrudOut("LolPlayers"))
+                .Add("Exit", ConsoleMenu.Close);
             var teamSubMenu = new ConsoleMenu(args, level: 1)
                 .Add("List", () => List("Team"))
                 .Add("Create", () => Create("Team"))
