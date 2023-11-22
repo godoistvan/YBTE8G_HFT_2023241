@@ -33,16 +33,6 @@ namespace YBTE8G_HFT_2023241.Logic.Services
 
             return teamWithMostLoLPlayers.TeamName;
         }
-        public string TeamWithHighestAverageSalaryInAGame(string game)
-        {
-            var teamWithHighestAverageSalary = teamRepo.ReadAll()
-                .OrderByDescending(team => team.Players
-                    .Where(player => player.game.GameName == game)
-                    .Average(player => player.Salary))
-                .FirstOrDefault();
-
-            return teamWithHighestAverageSalary.TeamName;
-        }
         public Team Read(int id)
         {
             return teamRepo.Read(id) ?? throw new ArgumentNullException("Nem találtunk ilyen id-vel csapatot");

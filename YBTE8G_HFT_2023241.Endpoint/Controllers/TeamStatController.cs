@@ -22,12 +22,6 @@ namespace YBTE8G_HFT_2023241.Endpoint.Controllers
             return this.logic.TeamWithMostLoLPlayers();
         }
 
-        [HttpGet]
-        public string TeamWithHighestAverageSalaryInDota2()
-        {
-            return this.logic.TeamWithHighestAverageSalaryInDota2();
-        }
-
 
     }
 }
