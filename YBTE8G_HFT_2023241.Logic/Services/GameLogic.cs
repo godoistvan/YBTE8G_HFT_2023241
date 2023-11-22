@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using YBTE8G_HFT_2023241.Logic.Interfaces;
 using YBTE8G_HFT_2023241.Models;
+using YBTE8G_HFT_2023241.Repository.Interfaces;
 
 namespace YBTE8G_HFT_2023241.Logic.Services
 {
@@ -17,6 +18,10 @@ namespace YBTE8G_HFT_2023241.Logic.Services
         public GameLogic(IGameLogic courseRepo)
         {
                 this.gameRepo=courseRepo;
+        }
+        public GameLogic(IRepository<Game> repo)
+        {
+            gameRepo = repo;
         }
         public void Create(Game course)
         {
