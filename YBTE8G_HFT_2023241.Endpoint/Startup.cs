@@ -10,6 +10,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using YBTE8G_HFT_2023241.Logic;
+using YBTE8G_HFT_2023241.Logic.Interfaces;
+using YBTE8G_HFT_2023241.Logic.Services;
+using YBTE8G_HFT_2023241.Models;
+using YBTE8G_HFT_2023241.Repository.Interfaces;
+using YBTE8G_HFT_2023241.Repository.Repositories;
 
 namespace YBTE8G_HFT_2023241.Endpoint
 {
@@ -25,7 +31,13 @@ namespace YBTE8G_HFT_2023241.Endpoint
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddTransient<EsportSystemDbContext>();
+            services.AddTransient<IRepository<Game>, GameRepository>();
+            services.AddTransient<IRepository<Player>, PlayerRepostiory>();
+            services.AddTransient<IRepository<Team>, TeamRepository>();
+            services.AddTransient<IGameLogic, GameLogic>();
+            services.AddTransient<ITeamLogic, TeamLogic>();
+            services.AddTransient<IPlayerLogic, PlayerLogic>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
