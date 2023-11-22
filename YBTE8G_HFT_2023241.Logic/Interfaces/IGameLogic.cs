@@ -14,5 +14,10 @@ namespace YBTE8G_HFT_2023241.Logic.Interfaces
         IEnumerable<Game> ReadAll();
         Game Read(int id);
         void Update(Game game);
+        string MostPlayersInAGame();
+        IEnumerable<string> ChinesePlayersWithExp();
+        string GameWithHighestAverageSalary();
+        string GameWithMostChineseTeams();
+        string GameWithMostLeagueChampions();
     }
 }
