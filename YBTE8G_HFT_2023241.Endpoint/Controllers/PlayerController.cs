@@ -12,8 +12,6 @@ namespace YBTE8G_HFT_2023241.Endpoint.Controllers
     public class PlayerController : ControllerBase
     {
         IPlayerLogic logic;
-        // GET: api/<GameController>
-
         public PlayerController(IPlayerLogic logic)
         {
             this.logic = logic;
@@ -23,29 +21,21 @@ namespace YBTE8G_HFT_2023241.Endpoint.Controllers
         {
             return this.logic.ReadAll();
         }
-
-        // GET api/<GameController>/5
         [HttpGet("{id}")]
         public Player Read(int id)
         {
             return this.logic.Read(id);
         }
-
-        // POST api/<GameController>
         [HttpPost]
         public void Create([FromBody] Player value)
         {
             this.logic.Create(value);
         }
-
-        // PUT api/<GameController>/5
         [HttpPut("{id}")]
         public void Update([FromBody] Player value)
         {
             this.logic.Update(value);
         }
-
-        // DELETE api/<GameController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
