@@ -25,9 +25,9 @@ namespace YBTE8G_HFT_2023241.Test
             Game dota = new Game();
             Game lol = new Game();
             Game cs = new Game();
-            Team jdg = new Team { Id = 1, TeamName = "JD Gaming", CountryOfOrigin = "China", MultipleGamesPlayed = true };
-            Team nrg = new Team { Id = 2, TeamName = "NRG", CountryOfOrigin = "United States", MultipleGamesPlayed = true };
-            Team bds = new Team { Id = 3, TeamName = "Team BDS", CountryOfOrigin = "France", MultipleGamesPlayed = true };
+            Team jdg = new Team { Id = 1, TeamName = "JD Gaming", CountryOfOrigin = "China", MultipleGamesPlayed = false };
+            Team nrg = new Team { Id = 2, TeamName = "NRG", CountryOfOrigin = "United States", MultipleGamesPlayed = false };
+            Team bds = new Team { Id = 3, TeamName = "Team BDS", CountryOfOrigin = "France", MultipleGamesPlayed = false };
             Team gg = new Team { Id = 16, TeamName = "Golden Guardians", CountryOfOrigin = "United States", MultipleGamesPlayed = true };
             var wowplayers = new List<Player>
             {
@@ -77,6 +77,18 @@ namespace YBTE8G_HFT_2023241.Test
         {
             var result = logic.ChinesePlayersWithExp();
             Assert.That(result.Count() == 3 && result.Contains("Whaazz") && result.Contains("TheShy") && result.Contains("Dopa"));
+        }
+        [Test]
+        public void GameWithMostChinesePlayersTest()
+        {
+            string result = logic.GameWithMostChineseTeams();
+            Assert.That(result == "World of Warcraft");
+        }
+        [Test]
+        public void GameWithHighestSalaryTest()
+        {
+            string result = logic.GameWithHighestAverageSalary();
+            Assert.That(result == "CS:GO");
         }
     }
 }
