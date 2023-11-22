@@ -14,5 +14,7 @@ namespace YBTE8G_HFT_2023241.Logic.Interfaces
         IEnumerable<Team> ReadAll();
         Team Read(int id);
         void Update(Team teamupdate);
+        string TeamWithMostLoLPlayers();
+        string TeamWithHighestAverageSalaryInDota2();
     }
 }
