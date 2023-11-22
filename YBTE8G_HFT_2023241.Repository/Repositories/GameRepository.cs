@@ -14,10 +14,22 @@ namespace YBTE8G_HFT_2023241.Repository.Repositories
         public GameRepository(EsportSystemDbContext ctx) : base(ctx)
         {
         }
-        public void UpdateLeagueName(int id,string LeagueName)
+
+        public override Game Read(int id)
         {
-            Game old = Read(id);
-            old.LeagueName = LeagueName;
+            return ctx.Games.FirstOrDefault(t => t.Id == id);
+        }
+
+        public override void Update(Game item)
+        {
+            var old = Read(item.Id);
+            foreach (var prop in old.GetType().GetProperties())
+            {
+                if (prop.GetAccessors().FirstOrDefault(t => t.IsVirtual) == null)
+                {
+                    prop.SetValue(old, prop.GetValue(item));
+                }
+            }
             ctx.SaveChanges();
         }
     }
