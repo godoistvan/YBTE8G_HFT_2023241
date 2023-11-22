@@ -81,7 +81,7 @@ namespace YBTE8G_HFT_2023241
                 Console.Write($"New name [old: {one.IngameName}]: ");
                 string name = Console.ReadLine();
                 one.IngameName = name;
-                rest.Put(one, "game");
+                rest.Put(one, "player");
             }
             if (entity == "Team")
             {
@@ -107,6 +107,12 @@ namespace YBTE8G_HFT_2023241
                 Console.Write("Enter Player's id to delete: ");
                 int id = int.Parse(Console.ReadLine());
                 rest.Delete(id, "player");
+            }
+            if (entity == "Team")
+            {
+                Console.Write("Enter Team's id to delete: ");
+                int id = int.Parse(Console.ReadLine());
+                rest.Delete(id, "team");
             }
         }
         static void Main(string[] args)

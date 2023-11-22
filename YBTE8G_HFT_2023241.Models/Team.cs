@@ -23,7 +23,10 @@ namespace YBTE8G_HFT_2023241.Models
         [NotMapped]
         [JsonIgnore]
         public virtual ICollection<Player> Players { get; set; }
-
+        public Team()
+        {
             
+        }
+
     }
 }

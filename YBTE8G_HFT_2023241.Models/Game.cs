@@ -19,11 +19,14 @@ namespace YBTE8G_HFT_2023241.Models
         public string GameName { get; set; }
         public string LeagueName { get; set; }
         [MaxLength(30)]
-        [Required]
         public string Developer { get; set; }
         public int ReleaseDate { get; set; }
         [NotMapped]
         [JsonIgnore]
         public virtual ICollection<Player> Players { get; set; }
+        public Game()
+        {
+                Players = new List<Player>();
+        }
     }
 }
