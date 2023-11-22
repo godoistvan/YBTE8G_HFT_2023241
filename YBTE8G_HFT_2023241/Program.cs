@@ -19,6 +19,13 @@ namespace YBTE8G_HFT_2023241
                 string name = Console.ReadLine();
                 rest.Post(new Game() { GameName = name }, "game");
             }
+            if (entity == "Player")
+            {
+                Console.Write("Enter Player Name: ");
+                string name = Console.ReadLine();
+                rest.Post(new Game() { GameName = name }, "player");
+            }
+
         }
         static void List(string entity)
         {
@@ -28,6 +35,14 @@ namespace YBTE8G_HFT_2023241
                 foreach (var item in games)
                 {
                     Console.WriteLine(item.Id + ": " + item.GameName);
+                }
+            }
+            if (entity == "Player")
+            {
+                List<Player> players = rest.Get<Player>("player");
+                foreach (var item in players)
+                {
+                    Console.WriteLine(item.Id+":"+item.IngameName);
                 }
             }
             Console.ReadLine();
@@ -45,6 +60,16 @@ namespace YBTE8G_HFT_2023241
                 one.GameName = name;
                 rest.Put(one, "game");
             }
+            if (entity == "Player")
+            {
+                Console.Write("Enter Player's id to update: ");
+                int id = int.Parse(Console.ReadLine());
+                Player one = rest.Get<Player>(id, "game");
+                Console.Write($"New name [old: {one.IngameName}]: ");
+                string name = Console.ReadLine();
+                one.IngameName = name;
+                rest.Put(one, "game");
+            }
         }
         static void Delete(string entity)
         {
@@ -53,6 +78,12 @@ namespace YBTE8G_HFT_2023241
                 Console.Write("Enter Game's id to delete: ");
                 int id = int.Parse(Console.ReadLine());
                 rest.Delete(id, "game");
+            }
+            if (entity == "Player")
+            {
+                Console.Write("Enter Player's id to delete: ");
+                int id = int.Parse(Console.ReadLine());
+                rest.Delete(id, "player");
             }
         }
         static void Main(string[] args)
