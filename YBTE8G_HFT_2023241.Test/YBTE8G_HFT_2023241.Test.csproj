@@ -16,7 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\YBTE8G_HFT_2023241.Client\YBTE8G_HFT_2023241.Client.csproj" />
     <ProjectReference Include="..\YBTE8G_HFT_2023241.Endpoint\YBTE8G_HFT_2023241.Endpoint.csproj" />
     <ProjectReference Include="..\YBTE8G_HFT_2023241.Logic\YBTE8G_HFT_2023241.Logic.csproj" />
     <ProjectReference Include="..\YBTE8G_HFT_2023241.Models\YBTE8G_HFT_2023241.Models.csproj" />
