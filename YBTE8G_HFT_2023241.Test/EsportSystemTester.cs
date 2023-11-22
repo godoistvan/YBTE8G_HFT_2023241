@@ -115,6 +115,13 @@ namespace YBTE8G_HFT_2023241.Test
             var game = new Game() { GameName = null};
             Assert.Throws<ArgumentNullException>(() => logic.Create(game));
         }
-        [
+        [Test]
+        public void DeleteTest()
+        {
+            var game= new Game { Id = 1, GameName = "World of Warcraft", LeagueName = "Arena World Championship", Developer = "Blizzard Entertainment", ReleaseDate = 2004};
+            logic.Delete(1);
+            mockGameRepo.Verify(r=>r.Delete(1),Times.Once);
+        }
+
     }
 }
