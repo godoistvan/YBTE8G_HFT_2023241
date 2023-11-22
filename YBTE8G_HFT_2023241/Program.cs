@@ -15,17 +15,17 @@ namespace YBTE8G_HFT_2023241
         {
             if (entity == "Game")
             {
-                Console.Write("Enter Actor Name: ");
+                Console.Write("Enter Game Name: ");
                 string name = Console.ReadLine();
                 rest.Post(new Game() { GameName = name }, "game");
             }
         }
         static void List(string entity)
         {
-            if (entity == "Actor")
+            if (entity == "Game")
             {
-                List<Game> actors = rest.Get<Game>("game");
-                foreach (var item in actors)
+                List<Game> games = rest.Get<Game>("game");
+                foreach (var item in games)
                 {
                     Console.WriteLine(item.Id + ": " + item.GameName);
                 }
@@ -35,9 +35,9 @@ namespace YBTE8G_HFT_2023241
 
         static void Update(string entity)
         {
-            if (entity == "Actor")
+            if (entity == "Game")
             {
-                Console.Write("Enter Actor's id to update: ");
+                Console.Write("Enter Games's id to update: ");
                 int id = int.Parse(Console.ReadLine());
                 Game one = rest.Get<Game>(id, "game");
                 Console.Write($"New name [old: {one.GameName}]: ");
@@ -57,7 +57,7 @@ namespace YBTE8G_HFT_2023241
         }
         static void Main(string[] args)
         {
-            rest = new RestService("http://localhost:22837/", "esport");
+            rest = new RestService("http://localhost:22837/", "game");
             var gameSubMenu = new ConsoleMenu(args, level: 1)
                 .Add("List", () => List("Game"))
                 .Add("Create", () => Create("Game"))
@@ -84,7 +84,6 @@ namespace YBTE8G_HFT_2023241
                 .Add("Teams", () => teamSubMenu.Show())
                 .Add("Exit", ConsoleMenu.Close);
             menu.Show();
-            Console.Clear();
         }
     }
 }
