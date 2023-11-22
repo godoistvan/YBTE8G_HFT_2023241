@@ -32,7 +32,7 @@ namespace YBTE8G_HFT_2023241.Test
             var wowplayers = new List<Player>
             {
                 new Player { Id = 1, IngameName = "Raiku", YearsActive = 2, TeamId = 1, GameId = 1, Salary = 274135, LeagueChampion = true ,Team=jdg,game=wow},
-                new Player { Id = 2, IngameName = "Whaazz", YearsActive = 5, TeamId = 1, GameId = 1, Salary = 691542, LeagueChampion = false ,Team=jdg,game=wow},
+                new Player { Id = 2, IngameName = "Whaazz", YearsActive = 5, TeamId = 1, GameId = 1, Salary = 691542, LeagueChampion = true ,Team=jdg,game=wow},
                 new Player { Id = 3, IngameName = "TheShy", YearsActive = 4, TeamId = 1, GameId = 1, Salary = 447813, LeagueChampion = true ,Team=jdg,game=wow},
                   new Player { Id = 4, IngameName = "Dopa", YearsActive = 4, TeamId = 1, GameId = 1, Salary = 447813, LeagueChampion = true ,Team=jdg,game=wow}
             };
@@ -89,6 +89,26 @@ namespace YBTE8G_HFT_2023241.Test
         {
             string result = logic.GameWithHighestAverageSalary();
             Assert.That(result == "CS:GO");
+        }
+        [Test]
+        public void GameWithMostLeagueChampionsTest()
+        {
+            string result = logic.GameWithMostLeagueChampions();
+            Assert.That(result == "World of Warcraft");
+        }
+        [Test]
+        public void CreateGame()
+        {
+            var game = new Game() { GameName = "Overwatch" };
+            try
+            {
+                logic.Create(game);
+            }
+            catch
+            {
+
+            }
+            mockGameRepo.Verify(r => r.Create(game), Times.Once);
         }
     }
 }
