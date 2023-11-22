@@ -75,6 +75,19 @@ namespace YBTE8G_HFT_2023241.Logic.Services
                 .OrderByDescending(game => game.ChineseTeamCount)
                 .FirstOrDefault().GameName;
         }
+        public string GameWithMostLeagueChampions()
+        {
+            var gameWithMostChampions = gameRepo.ReadAll()
+                .Select(game => new
+                {
+                    GameName = game.GameName,
+                    LeagueChampionCount = game.Players.Count(player => player.LeagueChampion)
+                })
+                .OrderByDescending(game => game.LeagueChampionCount)
+                .FirstOrDefault();
+
+            return gameWithMostChampions?.GameName;
+        }
         public void Update(Game course)
         {
             gameRepo.Update(course);
