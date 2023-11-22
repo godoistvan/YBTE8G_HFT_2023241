@@ -100,15 +100,21 @@ namespace YBTE8G_HFT_2023241.Test
         public void CreateGame()
         {
             var game = new Game() { GameName = "Overwatch" };
-            try
-            {
-                logic.Create(game);
-            }
-            catch
-            {
-
-            }
+            logic.Create(game);
             mockGameRepo.Verify(r => r.Create(game), Times.Once);
         }
+        [Test]
+        public void CreateGameWithInvalidGame()
+        {
+            var game = new Game() { GameName = "Minecraft" };
+            Assert.Throws<ArgumentException>(() => logic.Create(game));
+        }
+        [Test]
+        public void CreateGameWithNull()
+        {
+            var game = new Game() { GameName = null};
+            Assert.Throws<ArgumentNullException>(() => logic.Create(game));
+        }
+        [
     }
 }

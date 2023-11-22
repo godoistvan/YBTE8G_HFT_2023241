@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,9 +20,17 @@ namespace YBTE8G_HFT_2023241.Logic.Services
         {
             gameRepo = repo;
         }
-        public void Create(Game course)
+        public void Create(Game game)
         {
-            gameRepo.Create(course);
+            if (game.GameName=="Minecraft")
+            {
+                throw new ArgumentException("Sajnos ezt a játékot tiltott hozzáadni");
+            }
+            if (game.GameName==null)
+            {
+                throw new ArgumentNullException("Játéknév nélkül nincs játék");
+            }
+            gameRepo.Create(game);
         }
 
         public void Delete(int id)
@@ -88,9 +97,9 @@ namespace YBTE8G_HFT_2023241.Logic.Services
 
             return gameWithMostChampions?.GameName;
         }
-        public void Update(Game course)
+        public void Update(Game game)
         {
-            gameRepo.Update(course);
+            gameRepo.Update(game);
         }
     }
 }
