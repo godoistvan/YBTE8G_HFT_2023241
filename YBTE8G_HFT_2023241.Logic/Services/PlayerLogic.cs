@@ -16,9 +16,9 @@ namespace YBTE8G_HFT_2023241.Logic.Services
         {
             PlayerRepo = repo;
         }
-        public void Create(Player student)
+        public void Create(Player player)
         {
-            PlayerRepo.Create(student);
+            PlayerRepo.Create(player);
         }
 
         public void Delete(int id)
@@ -28,7 +28,7 @@ namespace YBTE8G_HFT_2023241.Logic.Services
 
         public Player Read(int id)
         {
-            return PlayerRepo.Read(id) ?? throw new ArgumentNullException("Nem találtunk ilyen id-vel hallgatót");
+            return PlayerRepo.Read(id) ?? throw new ArgumentNullException("Nem találtunk ilyen id-vel játékost");
         }
 
         public IEnumerable<Player> ReadAll()
@@ -36,9 +36,9 @@ namespace YBTE8G_HFT_2023241.Logic.Services
             return PlayerRepo.ReadAll();
         }
 
-        public void Update(Player student)
+        public void Update(Player player)
         {
-            PlayerRepo.Update(student);
+            PlayerRepo.Update(player);
         }
     }
 }

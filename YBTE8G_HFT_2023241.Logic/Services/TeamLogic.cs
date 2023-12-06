@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using YBTE8G_HFT_2023241.Logic.Interfaces;
 using YBTE8G_HFT_2023241.Models;
 using YBTE8G_HFT_2023241.Repository.Interfaces;
@@ -16,9 +14,9 @@ namespace YBTE8G_HFT_2023241.Logic.Services
         {
             teamRepo = repo;
         }
-        public void Create(Team classcreate)
+        public void Create(Team teamcreate)
         {
-            teamRepo.Create(classcreate);
+            teamRepo.Create(teamcreate);
         }
 
         public void Delete(int id)
@@ -43,9 +41,9 @@ namespace YBTE8G_HFT_2023241.Logic.Services
             return teamRepo.ReadAll();
         }
 
-        public void Update(Team classupdate)
+        public void Update(Team teamupdate)
         {
-            teamRepo.Update(classupdate);
+            teamRepo.Update(teamupdate);
         }
     }
 }
